@@ -9,10 +9,14 @@ class InterpreterSpec extends FlatSpec with Matchers {
   }
 
   it should "run Hello World" in {
-    val program = """++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.
-                     +++++++..+++.>>.<-.<.+++.------.--------.>>+.>++."""
+    /*
+     * Brainfuck "Hello World" posted by StackExchange Programming Puzzles &
+     * Code Golf user primo. http://codegolf.stackexchange.com/a/68494
+     */
+    val program = """--->->->>+>+>>+[++++[>+++[>++++>-->+++<<<-]
+                     <-]<+++]>>>.>-->-.>..+>++++>+++.+>-->[>-.<<]"""
     val resultOpt = Interpreter.parse(program).map(Interpreter.eval)
-    resultOpt should === (Some("Hello World!\n"))
+    resultOpt should === (Some("Hello, World!"))
   }
 
   it should "overflow an int" in {
