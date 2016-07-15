@@ -5,7 +5,7 @@ import scala.collection.immutable.Seq
 object Brainfp {
   def main(args: Array[String]): Unit = {
     val program = args.mkString
-    val ast = Interpreter.parse(program)
+    val ast = Parser.parse(program)
     val res = ast.map(Interpreter.eval)
     res match {
       case Some(result) => print(result)
